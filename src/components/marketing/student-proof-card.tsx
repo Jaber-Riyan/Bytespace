@@ -10,9 +10,9 @@ const students = [
   "imgEllipse6.png",
 ] as const;
 
-export function StudentProofCard({ className = "" }: { className?: string }) {
+export function StudentProofCard({ className = "", tone = "white" }: { className?: string; tone?: "white" | "lime" }) {
   return (
-    <div className={`w-[200px] rounded-[16px] bg-white p-3 lg:w-[258px] lg:p-4 text-shuttle-ink shadow-sm backdrop-blur-[10px] ${className}`}>
+    <div className={`w-[200px] rounded-[16px] p-3 lg:w-[258px] lg:p-4 text-shuttle-ink shadow-sm backdrop-blur-[10px] ${tone === "lime" ? "bg-electric-lime" : "bg-white"} ${className}`}>
       <div className="text-[14px] font-medium leading-[18px] lg:text-[16px] lg:leading-[19px]">Happy Students</div>
       <div className="flex items-center text-[11px] leading-[17px] lg:text-[12px] lg:leading-[19px]">
         <span>4.5</span>

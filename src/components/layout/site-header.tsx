@@ -18,7 +18,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const isHeroTop = pathname === "/" && !scrolled;
+  const isHeroTop = (pathname === "/" || pathname === "/courses" || /^\/courses\/[^/]+$/.test(pathname)) && !scrolled;
   const ink = isHeroTop ? "text-shuttle-soft hover:text-electric-lime" : "text-shuttle-ink hover:text-persian-blue";
 
   useEffect(() => {

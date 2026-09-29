@@ -1,18 +1,4 @@
 import { Container } from "@/components/layout/container";
-
 export default function Loading() {
-  return (
-    <main>
-      <Container className="grid animate-pulse gap-10 py-12 md:py-[72px] lg:grid-cols-[minmax(0,1fr)_390px]" role="status" aria-label="Loading course">
-        <div>
-          <div className="h-5 w-28 rounded bg-shuttle-soft" />
-          <div className="mt-5 h-14 w-3/4 rounded bg-shuttle-soft" />
-          <div className="mt-6 h-24 w-full max-w-[680px] rounded bg-shuttle-soft" />
-          <div className="mt-12 h-52 rounded-[20px] bg-shuttle-soft" />
-        </div>
-        <div className="h-[360px] rounded-[24px] bg-shuttle-soft" />
-        <span className="sr-only">Loading course</span>
-      </Container>
-    </main>
-  );
+  return <main role="status" aria-label="Loading course" className="relative -mt-[120px]"><div className="blue-grid absolute inset-x-0 top-0 h-[958px] bg-persian-blue" /><Container className="relative pt-[180px] pb-20 motion-safe:animate-pulse"><div className="h-12 w-3/4 rounded bg-white/20" /><div className="mt-6 h-6 w-1/2 rounded bg-white/20" /><div className="mt-24 grid gap-10 lg:grid-cols-[minmax(0,720px)_minmax(0,412px)]"><div className="aspect-[3/2] rounded-3xl bg-shuttle-soft" /><div className="h-[760px] rounded-3xl bg-white" /></div><span className="sr-only">Loading course</span></Container></main>;
 }

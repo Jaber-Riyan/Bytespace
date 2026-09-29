@@ -1,2 +1,5 @@
-import Link from "next/link"; import { Logo } from "@/components/ui/logo";
-export default function SignInPage() { return <div className="mx-auto flex min-h-screen max-w-xl flex-col justify-center gap-8 px-6"><Logo /><h1 className="text-4xl font-semibold">Welcome Back</h1><p className="text-brand-muted">Sign-in form implementation belongs here.</p><Link className="text-brand-purple" href="/register">New user? Create an account</Link></div>; }
+import { AuthScreen } from "@/components/auth/auth-screen";
+
+export default function SignInPage() {
+  return <AuthScreen mode="signIn" />;
+}

@@ -88,3 +88,5 @@ button, a, input { transition-duration: 160ms; }
 @media (prefers-reduced-motion: reduce) {
   .site-mobile-menu { transition: none; }
 }
+
+.blue-grid { background-image: url("/images/hero/imgGroup4.svg"); background-position: center top; background-size: 1440px auto; }
