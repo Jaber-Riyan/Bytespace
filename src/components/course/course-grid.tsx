@@ -8,7 +8,7 @@ export async function CourseGrid({ category, search }: { category?: string; sear
   }
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-10">
-      {courses.map((course) => <CourseCard key={course.id} course={course} />)}
+      {courses.slice(0, 6).map((course) => <CourseCard key={course.id} course={course} />)}
     </div>
   );
 }

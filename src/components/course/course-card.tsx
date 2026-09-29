@@ -15,6 +15,7 @@ export function CourseCard({ course, ratingOrder = "star-first" }: { course: Cou
           alt={course.title}
           width={682}
           height={390}
+          sizes="(min-width: 1024px) 373px, (min-width: 768px) 45vw, 90vw"
           className="aspect-[341/195] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
         <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5">

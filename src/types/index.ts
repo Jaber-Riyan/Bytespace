@@ -4,7 +4,7 @@ export type CourseLesson = {
   id: string;
   title: string;
   durationSeconds: number;
-  video: { provider: "youtube"; videoId: string; url: string };
+  video?: { provider: "youtube"; videoId: string; url: string };
 };
 
 export type CourseReview = {
@@ -30,4 +30,15 @@ export type Course = {
   durationSeconds: number;
   lessons: CourseLesson[];
   reviews: CourseReview[];
+  details: CourseDetails;
+};
+export type CourseDetails = {
+  headline: string;
+  subtitle: string;
+  descriptionParagraphs: string[];
+  previewImage: string;
+  gallery: { src: string; alt: string }[];
+  learningOutcomes: string[];
+  includes: string[];
+  instructor: { id: string; avatar: string; role: string; bio: string };
 };

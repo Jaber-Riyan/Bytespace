@@ -22,7 +22,7 @@ export default async function CourseLessonsPage({
           <div className="mt-9 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div>
               <div className="aspect-video overflow-hidden rounded-[20px] bg-[#040819]">
-                <iframe
+                {selected.video ? <iframe
                   key={selected.id}
                   src={`https://www.youtube-nocookie.com/embed/${selected.video.videoId}`}
                   title={selected.title}
@@ -30,11 +30,11 @@ export default async function CourseLessonsPage({
                   allowFullScreen
                   loading="lazy"
                   className="h-full w-full"
-                />
+                /> : <div className="flex h-full items-center justify-center p-6 text-center text-white"><p>This lesson video is not available yet.</p></div>}
               </div>
               <h2 className="mt-6 font-heading text-2xl font-semibold">{selected.title}</h2>
               <p className="mt-2 text-shuttle-muted">Lesson {course.lessons.indexOf(selected) + 1} of {course.lessons.length} · {formatDuration(selected.durationSeconds)}</p>
-              <a href={selected.video.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-persian-blue hover:underline">Watch on YouTube ↗</a>
+              {selected.video && <a href={selected.video.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-persian-blue hover:underline">Watch on YouTube ↗</a>}
             </div>
             <aside className="rounded-[20px] border border-[#ced0d3] p-5">
               <h2 className="font-heading text-xl font-semibold">Course lessons</h2>
