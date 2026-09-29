@@ -1,3 +1,4 @@
+import { ProgressBar } from "@/components/ui/progress-bar";
 import Image from "next/image";
 import { CourseSearch } from "@/components/course/course-search";
 import { StudentProofCard } from "@/components/marketing/student-proof-card";
@@ -105,9 +106,7 @@ export function HeroSection() {
             <p className="mt-1 font-heading text-[32px] font-semibold leading-[38px] tracking-[-0.01em] lg:mt-2 lg:text-[48px] lg:leading-[58px]">
               55%
             </p>
-            <div className="mt-2 h-2 rounded-full bg-[#f6f6f6]">
-              <div className="h-full w-[56%] rounded-full bg-electric-lime" />
-            </div>
+            <ProgressBar value={55} className="mt-2" />
           </div>
 
           <StudentProofCard className="absolute bottom-3 left-3 z-20 lg:bottom-auto lg:left-[calc(50%-392px)] lg:top-[837px]" />

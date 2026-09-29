@@ -18,7 +18,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const isHeroTop = (pathname === "/" || pathname === "/courses" || /^\/courses\/[^/]+$/.test(pathname)) && !scrolled;
+  const isHeroTop = (pathname === "/" || pathname === "/courses" || /^\/courses\/[^/]+(?:\/(?:lessons|reviews))?$/.test(pathname) || /^\/creators\/[^/]+$/.test(pathname)) && !scrolled;
   const ink = isHeroTop ? "text-shuttle-soft hover:text-electric-lime" : "text-shuttle-ink hover:text-persian-blue";
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export function SiteHeader() {
           <div className={`hidden items-center gap-6 text-[16px] lg:flex ${ink}`}>
             <Link href="/sign-in" className="focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current">Sign In</Link>
             <Link href="/register" className="focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current">Join Us</Link>
-            {isHeroTop && <Link href="/courses" aria-label="Browse courses" className="focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"><Image src="/images/hero/imgStyleOutlined1.svg" alt="" width={24} height={24} /></Link>}
+            <Link href="/courses" aria-label="Browse courses" className={`${isHeroTop ? "" : "hidden"} site-browse-link focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}><Image src="/images/hero/imgStyleOutlined1.svg" alt="" width={24} height={24} /></Link>
           </div>
 
           <button

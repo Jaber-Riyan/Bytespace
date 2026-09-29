@@ -1,13 +1,14 @@
 import { courses } from "@/data/courses";
 import type { Course } from "@/types";
 
-export type CourseQuery = { category?: string; search?: string; level?: string; sort?: string; maxPrice?: number; page?: number; pageSize?: number };
+export type CourseQuery = { creatorId?: string; category?: string; search?: string; level?: string; sort?: string; maxPrice?: number; page?: number; pageSize?: number };
 export type CoursePage = { items: Course[]; total: number; page: number; pageSize: number; totalPages: number };
 
 // Replace these async repository functions with API calls; consumers retain the same contracts.
 export async function listCourses(query: CourseQuery = {}): Promise<Course[]> {
   const search = query.search?.trim().toLowerCase();
   const items = courses.filter(course =>
+    (!query.creatorId || course.details.instructor.id === query.creatorId) &&
     (!query.category || query.category === "Featured" || course.category === query.category) &&
     (!query.level || course.level === query.level) &&
     (query.maxPrice === undefined || !Number.isFinite(query.maxPrice) || course.price <= query.maxPrice) &&

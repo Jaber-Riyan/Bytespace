@@ -1,3 +1,4 @@
+import { createModules, digitalAssetReviews } from "@/data/course-content";
 import type { Course, CourseLesson } from "@/types";
 
 const figmaLessons: CourseLesson[] = [
@@ -83,7 +84,7 @@ const extendedCourses = [...baseCourses, ...additionalCourses.map(([id, title, c
 
 export const courses: Course[] = extendedCourses.map(course => {
   const isDigital = course.id === "build-digital-asset";
-  const lessons: CourseLesson[] = isDigital ? figmaLessons : course.lessons.length ? course.lessons : [
+  const lessons: CourseLesson[] = isDigital ? [...figmaLessons, { id: "interactive-media", title: "Interactive media and engagement", durationSeconds: 960 }, { id: "project-showcase", title: "Project showcase and critique", durationSeconds: 1080 }, { id: "platform-optimization", title: "Optimizing for various platforms", durationSeconds: 840 }] : course.lessons.length ? course.lessons : [
     { id: `${course.id}-foundations`, title: `${course.category} foundations`, durationSeconds: 720 },
     { id: `${course.id}-practice`, title: "Guided practice: develop your ideas", durationSeconds: 1260 },
     { id: `${course.id}-project`, title: "Create and present your first project", durationSeconds: 960 },
@@ -97,8 +98,10 @@ export const courses: Course[] = extendedCourses.map(course => {
     ...course, lessons, lessonCount: lessons.length,
     durationSeconds: lessons.reduce((sum, lesson) => sum + lesson.durationSeconds, 0),
     ...(isDigital ? { level: "Intermediate" as const, rating: 4.8, reviewCount: 172, learnerCount: 199,
-      reviews: [{ id: "digital-review-1", author: "Jamie D.", rating: 5, quote: "The practical exercises helped me build a clearer process for creating and presenting digital assets." }] } : {}),
+      reviews: digitalAssetReviews } : {}),
     details: {
+      modules: createModules(lessons, isDigital),
+      ratingCounts: isDigital ? { 5: 148, 4: 18, 3: 4, 2: 1, 1: 1 } : { 5: 30, 4: 29, 3: 0, 2: 0, 1: 0 },
       headline: isDigital ? "Build Digital Asset: A Comprehensive Guide" : course.title,
       subtitle: isDigital ? "Unlock the Power of Digital Creation with Expert Guidance" : `Build your confidence in ${course.category.toLowerCase()}, one step at a time.`,
       descriptionParagraphs: description,

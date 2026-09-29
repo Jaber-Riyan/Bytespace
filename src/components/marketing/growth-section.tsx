@@ -1,3 +1,4 @@
+import { ProgressBar } from "@/components/ui/progress-bar";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,9 +36,7 @@ function LearningProgressCard({ className = "" }: { className?: string }) {
       <p className="mt-2 font-heading text-[48px] font-semibold leading-[1.2] tracking-[-0.01em]">
         55%
       </p>
-      <div className="mt-2 h-2 rounded-full bg-[#f6f6f6]">
-        <div className="h-full w-[56%] rounded-full bg-electric-lime" />
-      </div>
+      <ProgressBar value={55} className="mt-2" />
     </div>
   );
 }
@@ -88,9 +87,7 @@ function LearnerVisual() {
           <p className="mt-1 font-heading text-[30px] font-semibold leading-[1.2]">
             55%
           </p>
-          <div className="mt-2 h-1.5 rounded-full bg-shuttle-soft">
-            <div className="h-full w-[56%] rounded-full bg-electric-lime" />
-          </div>
+          <ProgressBar value={55} className="mt-2 h-1.5" />
         </div>
       </div>
     </>

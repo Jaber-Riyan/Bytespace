@@ -12,6 +12,9 @@ export type CourseReview = {
   author: string;
   rating: number;
   quote: string;
+  avatar?: string;
+  role?: string;
+  createdAt?: string;
 };
 
 export type Course = {
@@ -32,7 +35,10 @@ export type Course = {
   reviews: CourseReview[];
   details: CourseDetails;
 };
+export type CourseModule = { id: string; title: string; description: string; lessonIds: string[] };
 export type CourseDetails = {
+  modules: CourseModule[];
+  ratingCounts: Record<number, number>;
   headline: string;
   subtitle: string;
   descriptionParagraphs: string[];
@@ -41,4 +47,13 @@ export type CourseDetails = {
   learningOutcomes: string[];
   includes: string[];
   instructor: { id: string; avatar: string; role: string; bio: string };
+};
+
+export type Creator = {
+  id: string;
+  name: string;
+  avatar: string;
+  headline: string;
+  biography: string[];
+  followerCount: number;
 };

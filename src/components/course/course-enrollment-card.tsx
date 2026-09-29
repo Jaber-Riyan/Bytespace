@@ -7,7 +7,7 @@ export function CourseEnrollmentCard({ course }: { course: Course }) {
   return <aside aria-label="Course enrollment" className="rounded-[24px] border border-[#dedee1] bg-white p-6 text-shuttle-ink sm:p-10">
     <h2 className="text-xl font-bold">{course.lessonCount} Lessons ({formatDuration(course.durationSeconds)})</h2>
     <ol className="mt-6 space-y-4">{course.lessons.slice(0, 3).map((lesson, i) => <li key={lesson.id}><Link href={`/courses/${course.id}/lessons?lesson=${lesson.id}`} className="flex items-start gap-3 text-sm hover:text-persian-blue"><span>{String(i + 1).padStart(2, "0")}</span><span className="flex-1">{lesson.title}</span><span className="shrink-0 text-xs text-persian-blue">{formatDuration(lesson.durationSeconds)}</span></Link></li>)}</ol>
-    {course.lessons.length > 3 && <Link href={`/courses/${course.id}?tab=lessons#course-content`} className="mt-4 block text-sm text-shuttle-muted">{course.lessons.length - 3} more videos</Link>}
+    {course.lessons.length > 3 && <Link href={`/courses/${course.id}/lessons#course-content`} className="mt-4 block text-sm text-shuttle-muted">{course.lessons.length - 3} more lessons</Link>}
     {!course.lessons.length && <p className="mt-4 text-sm text-shuttle-muted">The lesson list will be available soon.</p>}
     <p className="mt-7 text-sm leading-6 text-shuttle-muted">Ready to dive in? Start building your digital future!</p>
     <p className="mt-5 text-4xl font-bold text-persian-blue">${course.price}<span className="text-sm font-normal text-shuttle-muted">/lifetime</span></p>
