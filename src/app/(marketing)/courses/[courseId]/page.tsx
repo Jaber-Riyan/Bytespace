@@ -1,0 +1,1 @@
+export default async function CourseDetailsPage({ params }: { params: Promise<{ courseId: string }> }) { const { courseId } = await params; return <main className="mx-auto max-w-5xl px-6 py-20"><h1 className="text-4xl font-semibold">Course details</h1><p className="mt-4 text-brand-muted">Course: {courseId}</p></main>; }
