@@ -1,26 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
-export type CourseCardProps = {
-  id: string;
-  title: string;
-  creator: string;
-  price: number;
-};
-export function CourseCard({ id, title, creator, price }: CourseCardProps) {
+import { formatDuration } from "@/lib/course-catalog";
+import type { Course } from "@/types";
+
+const avatars = [1, 2, 3, 4];
+
+export function CourseCard({ course }: { course: Course }) {
+  const href = `/courses/${course.id}`;
   return (
-    <article className="rounded-3xl border bg-white p-4 shadow-sm">
-      <div className="aspect-[16/9] rounded-2xl bg-brand-lilac" />
-      <div className="px-1 pb-1 pt-5">
-        <Link
-          href={`/courses/${id}`}
-          className="text-lg font-semibold text-brand-ink hover:text-brand-purple">
-          {title}
-        </Link>
-        <p className="mt-1 text-sm text-brand-muted">by {creator}</p>
-        <p className="mt-5 font-semibold text-brand-purple">
-          ${price}{" "}
-          <span className="text-xs font-normal text-brand-muted">
-            / lifetime
+    <article className="flex min-h-[384px] flex-col rounded-[24px] border border-[#ced0d3] bg-white p-4 transition-shadow hover:shadow-lg">
+      <Link href={href} className="group relative block overflow-hidden rounded-[12px]">
+        <Image
+          src={course.image}
+          alt={course.title}
+          width={682}
+          height={390}
+          className="aspect-[341/195] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        />
+        <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5">
+          <span className="rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-shuttle-ink">{course.lessonCount} Lessons</span>
+          <span className="rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-shuttle-ink">{formatDuration(course.durationSeconds)}</span>
+          <span className="rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-shuttle-ink">{course.reviewCount} Comments</span>
+        </div>
+      </Link>
+      <div className="flex flex-1 flex-col px-1 pt-4">
+        <div className="flex items-start justify-between gap-3">
+          <Link href={href} className="line-clamp-1 font-heading text-[20px] font-semibold leading-[1.3] text-[#040819] hover:text-persian-blue">{course.title}</Link>
+          <span className="flex shrink-0 items-center gap-1 text-[13px] text-shuttle-ink">
+            <Image src="/images/courses/star.svg" alt="" width={16} height={16} />
+            {course.rating.toFixed(1)}
           </span>
+        </div>
+        <p className="mt-1 text-[12px] leading-[18px] text-shuttle-muted">By <span className="text-persian-blue">{course.creator}</span></p>
+        <div className="mt-auto flex items-center justify-between gap-2 pt-3">
+          <span className="rounded-full bg-shuttle-soft px-3 py-1 text-[11px] text-shuttle-muted">{course.level}</span>
+          <div className="flex items-center pl-2" aria-label={`${course.learnerCount} learners`}>
+            {avatars.map((avatar) => (
+              <Image key={avatar} src={`/images/courses/avatar-${avatar}.png`} alt="" width={28} height={28} className="-ml-2 size-7 rounded-full border-2 border-white object-cover" />
+            ))}
+            <span className="-ml-1 flex size-7 items-center justify-center rounded-full border-2 border-white bg-persian-blue text-[9px] text-white">{course.learnerCount - 4}+</span>
+          </div>
+        </div>
+        <p className="mt-2 font-heading text-[20px] font-semibold leading-[26px] text-persian-blue">
+          ${course.price}<span className="ml-1 font-sans text-[12px] font-normal text-shuttle-muted">/ lifetime</span>
         </p>
       </div>
     </article>

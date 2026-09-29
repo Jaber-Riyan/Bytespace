@@ -1,2 +1,15 @@
+﻿import Image from "next/image";
 import Link from "next/link";
-export function Logo() { return <Link href="/" className="flex items-center gap-2.5 text-xl font-semibold tracking-tight text-brand-ink"><span aria-hidden className="grid size-8 place-items-center rounded-xl bg-brand-purple text-sm font-bold text-white">B</span>ByteSpace</Link>; }
+
+export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  return (
+    <Link
+      href="/"
+      aria-label="ByteSpace home"
+      className={`inline-flex shrink-0 items-center gap-[8px] font-display text-[24px] font-bold leading-[30px] ${tone === "light" ? "text-shuttle-soft" : "text-shuttle-ink"}`}
+    >
+      <Image src="/images/hero/imgVector.svg" alt="" width={29} height={32} />
+      <span>ByteSpace</span>
+    </Link>
+  );
+}
