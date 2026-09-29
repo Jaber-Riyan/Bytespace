@@ -1,10 +1,8 @@
 import { Container } from "@/components/layout/container";
-import { SiteHeader } from "@/components/layout/site-header";
 
 export default function Loading() {
   return (
     <main>
-      <SiteHeader />
       <Container className="grid animate-pulse gap-10 py-12 md:py-[72px] lg:grid-cols-[minmax(0,1fr)_390px]" role="status" aria-label="Loading course">
         <div>
           <div className="h-5 w-28 rounded bg-shuttle-soft" />

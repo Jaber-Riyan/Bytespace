@@ -3,13 +3,11 @@ import { CourseFilters } from "@/components/course/course-filters";
 import { CourseGrid } from "@/components/course/course-grid";
 import { CourseGridSkeleton } from "@/components/course/course-card-skeleton";
 import { Container } from "@/components/layout/container";
-import { SiteHeader } from "@/components/layout/site-header";
 
 export default async function CoursesPage({ searchParams }: { searchParams: Promise<{ q?: string; category?: string }> }) {
   const { q, category } = await searchParams;
   return (
     <main>
-      <SiteHeader />
       <Container className="py-12 md:py-[72px]">
         <div className="mx-auto max-w-[760px] text-center">
           <h1 className="font-heading text-[clamp(34px,4vw,44px)] font-semibold text-[#040819]">Explore courses</h1>

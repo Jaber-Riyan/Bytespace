@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SiteHeader } from "@/components/layout/site-header";
 import { CourseSearch } from "@/components/course/course-search";
 import { StudentProofCard } from "@/components/marketing/student-proof-card";
 import { DecorativeOrnament } from "@/components/ui/decorative-ornament";
@@ -9,7 +8,7 @@ const asset = (name: string) => `/images/hero/${name}`;
 export function HeroSection() {
   return (
     <section
-      className="relative min-h-[990px] overflow-hidden bg-persian-blue text-white lg:h-[1024px]"
+      className="relative -mt-[120px] min-h-[990px] overflow-hidden bg-persian-blue text-white lg:h-[1024px]"
       aria-labelledby="hero-title">
       <div className="relative mx-auto min-h-[990px] max-w-[1440px] lg:h-full lg:min-h-0">
         <Image
@@ -68,9 +67,8 @@ export function HeroSection() {
           />
         </div>
 
-        <SiteHeader variant="hero" />
 
-        <div className="relative z-20 mx-auto mt-[44px] flex w-[calc(100%-40px)] max-w-[1200px] flex-col items-center text-center lg:absolute lg:left-1/2 lg:top-[169px] lg:mt-0 lg:-translate-x-1/2">
+        <div className="relative z-20 mx-auto mt-[164px] flex w-[calc(100%-40px)] max-w-[1200px] flex-col items-center text-center lg:absolute lg:left-1/2 lg:top-[169px] lg:mt-0 lg:-translate-x-1/2">
           <h1
             id="hero-title"
             className="max-w-[935px] font-heading text-[clamp(42px,5vw,72px)] font-semibold leading-[1.2] tracking-[-0.01em]">
