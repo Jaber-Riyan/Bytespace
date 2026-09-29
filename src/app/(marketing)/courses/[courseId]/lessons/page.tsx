@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
-import { SiteHeader } from "@/components/layout/site-header";
 import { getCourse, formatDuration } from "@/lib/course-catalog";
 
 export default async function CourseLessonsPage({
@@ -16,7 +15,6 @@ export default async function CourseLessonsPage({
   const selected = course.lessons.find((lesson) => lesson.id === requestedLesson) ?? course.lessons[0];
   return (
     <main>
-      <SiteHeader />
       <Container className="py-12 md:py-[72px]">
         <Link href={`/courses/${course.id}`} className="text-sm text-persian-blue hover:underline">← Back to course</Link>
         <h1 className="mt-5 font-heading text-[clamp(30px,4vw,44px)] font-semibold text-[#040819]">{course.title}</h1>

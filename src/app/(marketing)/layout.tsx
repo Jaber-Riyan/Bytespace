@@ -1,12 +1,11 @@
 import { SiteHeader } from "@/components/layout/site-header";
-import { NotFoundContent } from "@/components/layout/not-found-content";
 import { SiteFooter } from "@/components/marketing/site-footer";
 
-export default function NotFound() {
+export default function MarketingLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <div className="flex-1"><NotFoundContent /></div>
+      <div className="flex-1">{children}</div>
       <SiteFooter />
     </div>
   );

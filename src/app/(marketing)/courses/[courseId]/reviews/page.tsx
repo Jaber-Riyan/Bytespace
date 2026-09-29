@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/container";
-import { SiteHeader } from "@/components/layout/site-header";
 import { getCourse } from "@/lib/course-catalog";
 
 export default async function CourseReviewsPage({ params }: { params: Promise<{ courseId: string }> }) {
@@ -10,7 +9,6 @@ export default async function CourseReviewsPage({ params }: { params: Promise<{ 
   if (!course) notFound();
   return (
     <main>
-      <SiteHeader />
       <Container className="max-w-[900px] py-12 md:py-[72px]">
         <Link href={`/courses/${course.id}`} className="text-sm text-persian-blue hover:underline">← Back to course</Link>
         <h1 className="mt-5 font-heading text-[clamp(30px,4vw,44px)] font-semibold">{course.title} reviews</h1>
