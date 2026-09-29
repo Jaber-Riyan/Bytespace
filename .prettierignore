@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+.git/
+.codex/
+.agents/
+.vercel/
+public/
+docs/screenshots/
+package-lock.json
+next-env.d.ts
+*.tsbuildinfo

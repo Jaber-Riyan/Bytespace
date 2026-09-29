@@ -10,7 +10,8 @@ export function HeroSection() {
   return (
     <section
       className="relative -mt-[120px] min-h-[990px] overflow-hidden bg-persian-blue text-white lg:h-[1024px]"
-      aria-labelledby="hero-title">
+      aria-labelledby="hero-title"
+    >
       <div className="relative mx-auto min-h-[990px] max-w-[1440px] lg:h-full lg:min-h-0">
         <Image
           src={asset("imgGroup4.svg")}
@@ -68,16 +69,16 @@ export function HeroSection() {
           />
         </div>
 
-
         <div className="relative z-20 mx-auto mt-[164px] flex w-[calc(100%-40px)] max-w-[1200px] flex-col items-center text-center lg:absolute lg:left-1/2 lg:top-[169px] lg:mt-0 lg:-translate-x-1/2">
           <h1
             id="hero-title"
-            className="max-w-[935px] font-heading text-[clamp(42px,5vw,72px)] font-semibold leading-[1.2] tracking-[-0.01em]">
+            className="max-w-[935px] font-heading text-[clamp(42px,5vw,72px)] font-semibold leading-[1.2] tracking-[-0.01em]"
+          >
             Get Access to Hundreds Courses Available
           </h1>
           <p className="mt-8 max-w-[900px] text-[18px] leading-[1.6] text-[#e5e6e8]">
-            Unlock your creativity, gain valuable knowledge, and grow your
-            business with our wide range of courses.
+            Unlock your creativity, gain valuable knowledge, and grow your business with our wide
+            range of courses.
           </p>
           <CourseSearch className="mt-[60px]" />
         </div>
@@ -93,7 +94,9 @@ export function HeroSection() {
           />
 
           <div className="absolute left-3 top-[48px] z-20 w-[174px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-sm backdrop-blur-[10px] lg:left-[calc(50%-316px)] lg:top-[639px] lg:w-auto lg:p-4">
-            <p className="text-[14px] font-medium leading-[18px] lg:text-[16px] lg:leading-[19px]">UI/UX Design</p>
+            <p className="text-[14px] font-medium leading-[18px] lg:text-[16px] lg:leading-[19px]">
+              UI/UX Design
+            </p>
             <p className="mt-1 text-[10px] leading-[15px] text-shuttle-muted lg:text-[12px] lg:leading-[19px]">
               200 Courses <span className="mx-1 lg:mx-2">•</span> 1000+ Students
             </p>

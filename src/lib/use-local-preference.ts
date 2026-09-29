@@ -15,14 +15,24 @@ const serverSnapshot = () => null;
 
 export function useLocalPreference(key: string) {
   const snapshot = useCallback(() => {
-    try { return window.localStorage.getItem(key) ?? fallback.get(key) ?? null; }
-    catch { return fallback.get(key) ?? null; }
+    try {
+      return window.localStorage.getItem(key) ?? fallback.get(key) ?? null;
+    } catch {
+      return fallback.get(key) ?? null;
+    }
   }, [key]);
   const value = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
-  const setValue = useCallback((next: string) => {
-    fallback.set(key, next);
-    try { window.localStorage.setItem(key, next); } catch { /* Session memory still works when storage is unavailable. */ }
-    window.dispatchEvent(new Event(eventName));
-  }, [key]);
+  const setValue = useCallback(
+    (next: string) => {
+      fallback.set(key, next);
+      try {
+        window.localStorage.setItem(key, next);
+      } catch {
+        /* Session memory still works when storage is unavailable. */
+      }
+      window.dispatchEvent(new Event(eventName));
+    },
+    [key],
+  );
   return [value, setValue] as const;
 }

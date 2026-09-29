@@ -6,5 +6,13 @@ import { courses } from "@/data/courses";
 
 const catalog = courses.map(({ id, title, image, price }) => ({ id, title, image, price }));
 export function SiteFrame({ children }: { children: ReactNode }) {
-  return <CartProvider catalog={catalog}><div className="flex min-h-screen flex-col"><SiteHeader /><div className="flex-1">{children}</div><SiteFooter /></div></CartProvider>;
+  return (
+    <CartProvider catalog={catalog}>
+      <div className="flex min-h-screen flex-col">
+        <SiteHeader />
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
+      </div>
+    </CartProvider>
+  );
 }

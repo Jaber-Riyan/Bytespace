@@ -15,11 +15,7 @@ const learningPaths = [
   { label: "Photography", category: "Photography", icon: "photography" },
 ] as const;
 
-function LearningPathIcon({
-  icon,
-}: {
-  icon: (typeof learningPaths)[number]["icon"];
-}) {
+function LearningPathIcon({ icon }: { icon: (typeof learningPaths)[number]["icon"] }) {
   const paths = {
     design: (
       <>
@@ -69,7 +65,8 @@ function LearningPathIcon({
       strokeWidth="2.2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-9">
+      className="size-9"
+    >
       {paths[icon]}
     </svg>
   );
@@ -79,7 +76,8 @@ function LearningPathCard({ path }: { path: (typeof learningPaths)[number] }) {
   return (
     <Link
       href={`/courses?category=${encodeURIComponent(path.category)}`}
-      className="group flex h-[167px] w-full max-w-[167px] flex-col items-center justify-center gap-3 rounded-[24px] border border-[#ced0d3] bg-white text-center transition-[border-color,box-shadow,transform] hover:-translate-y-1 hover:border-persian-blue hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue">
+      className="group flex h-[167px] w-full max-w-[167px] flex-col items-center justify-center gap-3 rounded-[24px] border border-[#ced0d3] bg-white text-center transition-[border-color,box-shadow,transform] hover:-translate-y-1 hover:border-persian-blue hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue"
+    >
       <span className="grid size-[60px] place-items-center rounded-[18px] bg-shuttle-soft text-persian-blue group-hover:bg-electric-lime">
         <LearningPathIcon icon={path.icon} />
       </span>
@@ -92,9 +90,7 @@ function LearningPathCard({ path }: { path: (typeof learningPaths)[number] }) {
 
 export function LearningPathsSection() {
   return (
-    <section
-      aria-labelledby="learning-paths-title"
-      className="bg-white pb-[120px]">
+    <section aria-labelledby="learning-paths-title" className="bg-white pb-[120px]">
       <Container>
         <CenteredSectionIntro
           id="learning-paths-title"

@@ -21,7 +21,8 @@ function GrowthFeatureRow({
 }) {
   return (
     <div
-      className={`grid items-center gap-10 min-[1360px]:gap-0 ${reverse ? "min-[1360px]:grid-cols-[541px_580px] min-[1360px]:gap-x-[79px]" : "min-[1360px]:grid-cols-[574px_621px] min-[1360px]:gap-x-[63px]"}`}>
+      className={`grid items-center gap-10 min-[1360px]:gap-0 ${reverse ? "min-[1360px]:grid-cols-[541px_580px] min-[1360px]:gap-x-[79px]" : "min-[1360px]:grid-cols-[574px_621px] min-[1360px]:gap-x-[63px]"}`}
+    >
       <div className={reverse ? "min-[1360px]:order-2" : ""}>{children}</div>
       <div className={reverse ? "min-[1360px]:order-1" : ""}>{visual}</div>
     </div>
@@ -31,7 +32,8 @@ function GrowthFeatureRow({
 function LearningProgressCard({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`w-[232px] rounded-[16px] bg-white p-4 text-shuttle-ink shadow-sm backdrop-blur-[10px] ${className}`}>
+      className={`w-[232px] rounded-[16px] bg-white p-4 text-shuttle-ink shadow-sm backdrop-blur-[10px] ${className}`}
+    >
       <p className="text-[14px] font-medium leading-6">Learning Progress</p>
       <p className="mt-2 font-heading text-[48px] font-semibold leading-[1.2] tracking-[-0.01em]">
         55%
@@ -66,7 +68,8 @@ function LearnerVisual() {
       <div className="relative mx-auto h-[390px] w-full max-w-[390px] min-[1360px]:hidden">
         <Link
           href="/courses/learn-figma"
-          className="absolute left-0 top-0 h-[185px] w-[70%] overflow-hidden rounded-[20px] border border-[#ced0d3] bg-white p-2">
+          className="absolute left-0 top-0 h-[185px] w-[70%] overflow-hidden rounded-[20px] border border-[#ced0d3] bg-white p-2"
+        >
           <Image
             src="/images/courses/figma.png"
             alt="Learn Figma from Basic course"
@@ -84,9 +87,7 @@ function LearnerVisual() {
         />
         <div className="absolute bottom-5 right-0 z-20 w-[150px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-md">
           <p className="text-[11px] font-medium">Learning Progress</p>
-          <p className="mt-1 font-heading text-[30px] font-semibold leading-[1.2]">
-            55%
-          </p>
+          <p className="mt-1 font-heading text-[30px] font-semibold leading-[1.2]">55%</p>
           <ProgressBar value={55} className="mt-2 h-1.5" />
         </div>
       </div>
@@ -109,12 +110,11 @@ function RevenueBadge({
 }) {
   return (
     <div
-      className={`rounded-[16px] bg-persian-blue p-4 text-white shadow-sm ${compact ? "w-[134px]" : "w-[232px]"} ${className}`}>
+      className={`rounded-[16px] bg-persian-blue p-4 text-white shadow-sm ${compact ? "w-[134px]" : "w-[232px]"} ${className}`}
+    >
       <p className="text-[16px] font-medium leading-[1.2]">{title}</p>
       <p className="text-[10px] leading-[1.2]">{period}</p>
-      <p className="mt-2 font-heading text-[24px] font-semibold leading-8">
-        {value}
-      </p>
+      <p className="mt-2 font-heading text-[24px] font-semibold leading-8">{value}</p>
       {compact ? (
         <span className="mt-2 inline-block rounded-full bg-electric-lime px-2 py-0.5 text-[10px] font-medium text-shuttle-ink">
           +12$
@@ -200,7 +200,8 @@ export function GrowthSection() {
   return (
     <section
       aria-label="Professional growth with ByteSpace"
-      className="relative overflow-hidden bg-[#fafafa] py-20 min-[1360px]:py-[120px]">
+      className="relative overflow-hidden bg-[#fafafa] py-20 min-[1360px]:py-[120px]"
+    >
       <Image
         src={growthAsset("background.svg")}
         alt=""
@@ -222,11 +223,10 @@ export function GrowthSection() {
               Your Path to Professional Growth Starts Here!
             </h2>
             <p className="mt-8 max-w-[477px] text-[16px] leading-[1.6] text-[#4b4c53] sm:text-[18px] min-[1360px]:mt-10">
-              Explore our curated selection of courses tailored to enhance your
-              capabilities and accelerate your career journey. Whether you are
-              looking to sharpen specific skills, gain industry expertise, or
-              embark on a new career path entirely, we have the resources you
-              need.
+              Explore our curated selection of courses tailored to enhance your capabilities and
+              accelerate your career journey. Whether you are looking to sharpen specific skills,
+              gain industry expertise, or embark on a new career path entirely, we have the
+              resources you need.
             </p>
             <div className="mt-8 flex flex-wrap gap-8 sm:gap-14 min-[1360px]:mt-10">
               {[
@@ -238,9 +238,7 @@ export function GrowthSection() {
                   <p className="font-heading text-[30px] font-semibold leading-[44px] tracking-[-0.01em] text-persian-blue sm:text-[36px]">
                     {value}
                   </p>
-                  <p className="text-[16px] leading-[1.6] text-[#4b4c53] sm:text-[18px]">
-                    {label}
-                  </p>
+                  <p className="text-[16px] leading-[1.6] text-[#4b4c53] sm:text-[18px]">{label}</p>
                 </div>
               ))}
             </div>
@@ -253,23 +251,17 @@ export function GrowthSection() {
                 Create &amp; Manage Courses Easily.
               </h2>
               <p className="mt-8 max-w-[574px] text-[16px] leading-[1.6] text-[#4b4c53] sm:text-[18px] min-[1360px]:mt-10">
-                <strong className="font-bold text-shuttle-ink">
-                  ByteSpace
-                </strong>{" "}
-                supports individuals or entities in the creation, publication,
-                and administration of educational courses.
+                <strong className="font-bold text-shuttle-ink">ByteSpace</strong> supports
+                individuals or entities in the creation, publication, and administration of
+                educational courses.
               </p>
               <ul className="mt-8 space-y-4 min-[1360px]:mt-10">
                 {benefits.map((benefit) => (
                   <li
                     key={benefit}
-                    className="flex items-center gap-2 text-[16px] font-medium text-shuttle-ink sm:text-[18px]">
-                    <Image
-                      src={growthAsset("check.svg")}
-                      alt=""
-                      width={24}
-                      height={24}
-                    />
+                    className="flex items-center gap-2 text-[16px] font-medium text-shuttle-ink sm:text-[18px]"
+                  >
+                    <Image src={growthAsset("check.svg")} alt="" width={24} height={24} />
                     <span>{benefit}</span>
                   </li>
                 ))}

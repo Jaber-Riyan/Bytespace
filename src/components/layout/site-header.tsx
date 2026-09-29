@@ -56,10 +56,7 @@ export function SiteHeader() {
     let directionDistance = 0;
     let frame = 0;
     let hideTimer: number | undefined;
-    const hero =
-      pathname === "/"
-        ? document.querySelector('[aria-labelledby="hero-title"]')
-        : null;
+    const hero = pathname === "/" ? document.querySelector('[aria-labelledby="hero-title"]') : null;
 
     const cancelHide = () => {
       if (hideTimer) window.clearTimeout(hideTimer);
@@ -130,32 +127,30 @@ export function SiteHeader() {
   }, [pathname, menuOpen]);
 
   return (
-    <header
-      className="pointer-events-none sticky top-0 z-50 h-[120px]"
-      aria-label="Site header">
+    <header className="pointer-events-none sticky top-0 z-50 h-[120px]" aria-label="Site header">
       <div
         className={`site-header-shell pointer-events-auto absolute left-1/2 ${scrolled ? "top-3 h-[72px] w-[calc(100%-32px)] max-w-[1200px] rounded-[24px] bg-white/95 shadow-[0_12px_36px_rgba(22,31,68,0.16)] backdrop-blur-xl" : "top-0 h-[80px] w-full bg-transparent lg:h-[120px]"}`}
         data-scroll-state={scrolled ? (visible ? "floating" : "hidden") : "top"}
         style={{
-          transform: visible
-            ? "translate(-50%, 0)"
-            : "translate(-50%, calc(-100% - 24px))",
-        }}>
+          transform: visible ? "translate(-50%, 0)" : "translate(-50%, calc(-100% - 24px))",
+        }}
+      >
         <Container className="relative flex h-full items-center justify-between gap-2">
           <Logo tone={isHeroTop ? "light" : "dark"} />
 
           <nav
             aria-label="Primary navigation"
-            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 gap-6 text-[16px] lg:flex">
+            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 gap-6 text-[16px] lg:flex"
+          >
             {navigation.map(({ label, href }) => {
-              const active =
-                href === "/" ? pathname === "/" : pathname.startsWith(href);
+              const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
               return (
                 <Link
                   key={href}
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={`${ink} ${active ? "font-medium" : ""} focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}>
+                  className={`${ink} ${active ? "font-medium" : ""} focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
+                >
                   {label}
                 </Link>
               );
@@ -163,27 +158,30 @@ export function SiteHeader() {
           </nav>
 
           <div
-            className={`site-header-actions flex shrink-0 items-center gap-1 text-[16px] sm:gap-3 lg:gap-6 ${ink}`}>
+            data-tone={isHeroTop ? "light" : "dark"}
+            className={`site-header-actions flex shrink-0 items-center gap-1 text-[16px] sm:gap-3 lg:gap-6 ${isHeroTop ? "text-shuttle-soft" : "text-shuttle-ink"}`}
+          >
             <Link
               href="/sign-in"
-              className="hidden focus-visible:outline-2 focus-visible:outline-offset-2 lg:block">
+              className="hidden focus-visible:outline-2 focus-visible:outline-offset-2 lg:block"
+            >
               Sign In
             </Link>
             <Link
               href="/register"
-              className="hidden focus-visible:outline-2 focus-visible:outline-offset-2 lg:block">
+              className="hidden focus-visible:outline-2 focus-visible:outline-offset-2 lg:block"
+            >
               Join Us
             </Link>
             <CartButton onOpen={() => setMenuOpen(false)} />
             <button
               type="button"
-              aria-label={
-                menuOpen ? "Close navigation menu" : "Open navigation menu"
-              }
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-controls="mobile-navigation"
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((open) => !open)}
-              className={`inline-flex size-11 items-center justify-center rounded-xl border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current lg:hidden ${isHeroTop ? "border-white/35 text-white" : "border-[#ced0d3] text-shuttle-ink"}`}>
+              className={`inline-flex size-11 items-center justify-center rounded-xl border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current lg:hidden ${isHeroTop ? "border-white/35 text-white" : "border-[#ced0d3] text-shuttle-ink"}`}
+            >
               <span className="relative block h-5 w-5" aria-hidden="true">
                 <span
                   className={`absolute left-0 top-[3px] h-[2px] w-5 rounded-full bg-current transition-transform duration-200 ${menuOpen ? "translate-y-[6px] rotate-45" : ""}`}
@@ -204,17 +202,18 @@ export function SiteHeader() {
           aria-label="Mobile navigation"
           aria-hidden={!menuOpen}
           data-open={menuOpen}
-          className={`site-mobile-menu absolute top-full mt-2 rounded-[20px] border border-[#ced0d3] bg-white p-3 text-shuttle-ink shadow-[0_16px_40px_rgba(22,31,68,0.2)] lg:hidden ${scrolled ? "left-0 right-0" : "left-4 right-4"}`}>
+          className={`site-mobile-menu absolute top-full mt-2 rounded-[20px] border border-[#ced0d3] bg-white p-3 text-shuttle-ink shadow-[0_16px_40px_rgba(22,31,68,0.2)] lg:hidden ${scrolled ? "left-0 right-0" : "left-4 right-4"}`}
+        >
           {navigation.map(({ label, href }) => {
-            const active =
-              href === "/" ? pathname === "/" : pathname.startsWith(href);
+            const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
                 aria-current={active ? "page" : undefined}
-                className={`block rounded-xl px-4 py-3 text-[16px] hover:bg-shuttle-soft ${active ? "bg-shuttle-soft font-medium text-persian-blue" : ""}`}>
+                className={`block rounded-xl px-4 py-3 text-[16px] hover:bg-shuttle-soft ${active ? "bg-shuttle-soft font-medium text-persian-blue" : ""}`}
+              >
                 {label}
               </Link>
             );
@@ -223,13 +222,15 @@ export function SiteHeader() {
           <Link
             href="/sign-in"
             onClick={() => setMenuOpen(false)}
-            className="block rounded-xl px-4 py-3 text-[16px] hover:bg-shuttle-soft">
+            className="block rounded-xl px-4 py-3 text-[16px] hover:bg-shuttle-soft"
+          >
             Sign In
           </Link>
           <Link
             href="/register"
             onClick={() => setMenuOpen(false)}
-            className="mt-1 block rounded-xl bg-electric-lime px-4 py-3 text-center text-[16px] font-medium hover:bg-[#c9ed1e]">
+            className="mt-1 block rounded-xl bg-electric-lime px-4 py-3 text-center text-[16px] font-medium hover:bg-[#c9ed1e]"
+          >
             Join Us
           </Link>
         </nav>
