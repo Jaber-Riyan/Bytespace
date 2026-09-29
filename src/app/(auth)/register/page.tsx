@@ -1,2 +1,5 @@
-import Link from "next/link"; import { Logo } from "@/components/ui/logo";
-export default function RegisterPage() { return <div className="mx-auto flex min-h-screen max-w-xl flex-col justify-center gap-8 px-6"><Logo /><h1 className="text-4xl font-semibold">Create an Account</h1><p className="text-brand-muted">Registration form implementation belongs here.</p><Link className="text-brand-purple" href="/sign-in">Already have an account? Sign in</Link></div>; }
+import { AuthScreen } from "@/components/auth/auth-screen";
+
+export default function RegisterPage() {
+  return <AuthScreen mode="register" />;
+}
