@@ -1,12 +1,4 @@
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/marketing/site-footer";
-
+import { SiteFrame } from "@/components/layout/site-frame";
 export default function MarketingLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader />
-      <div className="flex-1">{children}</div>
-      <SiteFooter />
-    </div>
-  );
+  return <SiteFrame>{children}</SiteFrame>;
 }

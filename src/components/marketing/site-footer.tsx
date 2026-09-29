@@ -32,25 +32,47 @@ const footerGroups: FooterItem[][] = [
 
 function FooterNavItem({ item }: { item: FooterItem }) {
   return item.href ? (
-    <Link href={item.href} className="hover:text-persian-blue focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue">{item.label}</Link>
-  ) : <span>{item.label}</span>;
+    <Link
+      href={item.href}
+      className="hover:text-persian-blue focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue"
+    >
+      {item.label}
+    </Link>
+  ) : (
+    <span>{item.label}</span>
+  );
 }
 
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden bg-white text-shuttle-ink">
-      <Image src="/images/footer/top-divider.svg" alt="" width={1440} height={1} className="pointer-events-none absolute left-1/2 top-0 max-w-none -translate-x-1/2" />
+      <Image
+        src="/images/footer/top-divider.svg"
+        alt=""
+        width={1440}
+        height={1}
+        className="pointer-events-none absolute left-1/2 top-0 max-w-none -translate-x-1/2"
+      />
       <Container className="relative pb-12 pt-[71px]">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,528px)_minmax(0,580px)] lg:gap-[92px]">
           <div className="max-w-[528px]">
             <Logo />
-            <p className="mt-4 text-[14px] leading-[1.6]">Stay Up to date with our latest features and releases by joining our newsletter.</p>
-            <div className="mt-[45px]"><NewsletterForm /></div>
+            <p className="mt-4 text-[14px] leading-[1.6]">
+              Stay Up to date with our latest features and releases by joining our newsletter.
+            </p>
+            <div className="mt-[45px]">
+              <NewsletterForm />
+            </div>
           </div>
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-5 gap-y-8 text-[14px] leading-[1.6] sm:grid-cols-3 lg:grid-cols-[repeat(3,167px)] lg:gap-x-10 lg:pt-12">
+          <nav
+            aria-label="Footer"
+            className="grid grid-cols-2 gap-x-5 gap-y-8 text-[14px] leading-[1.6] sm:grid-cols-3 lg:grid-cols-[repeat(3,167px)] lg:gap-x-10 lg:pt-12"
+          >
             {footerGroups.map((group, index) => (
               <div key={index} className="flex flex-col items-start gap-4">
-                {group.map((item) => <FooterNavItem key={item.label} item={item} />)}
+                {group.map((item) => (
+                  <FooterNavItem key={item.label} item={item} />
+                ))}
               </div>
             ))}
           </nav>

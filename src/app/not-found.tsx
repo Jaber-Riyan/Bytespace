@@ -1,13 +1,9 @@
-import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFrame } from "@/components/layout/site-frame";
 import { NotFoundContent } from "@/components/layout/not-found-content";
-import { SiteFooter } from "@/components/marketing/site-footer";
-
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader />
-      <div className="flex-1"><NotFoundContent /></div>
-      <SiteFooter />
-    </div>
+    <SiteFrame>
+      <NotFoundContent />
+    </SiteFrame>
   );
 }
