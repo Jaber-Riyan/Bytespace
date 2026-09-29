@@ -1,19 +1,25 @@
-import { CourseCard } from "@/components/course/course-card";
+import { Suspense } from "react";
+import { CourseFilters } from "@/components/course/course-filters";
+import { CourseGrid } from "@/components/course/course-grid";
+import { CourseGridSkeleton } from "@/components/course/course-card-skeleton";
 import { Container } from "@/components/layout/container";
 import { SiteHeader } from "@/components/layout/site-header";
-export default function CoursesPage() {
+
+export default async function CoursesPage({ searchParams }: { searchParams: Promise<{ q?: string; category?: string }> }) {
+  const { q, category } = await searchParams;
   return (
     <main>
       <SiteHeader />
-      <Container className="py-16">
-        <h1 className="text-4xl font-semibold">Explore courses</h1>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CourseCard
-            id="learn-figma"
-            title="Learn Figma from Basic"
-            creator="purepearl studio"
-            price={25}
-          />
+      <Container className="py-12 md:py-[72px]">
+        <div className="mx-auto max-w-[760px] text-center">
+          <h1 className="font-heading text-[clamp(34px,4vw,44px)] font-semibold text-[#040819]">Explore courses</h1>
+          <p className="mt-4 text-lg text-shuttle-muted">Find practical lessons for the skills you want to build next.</p>
+        </div>
+        <div className="mt-10"><CourseFilters selected={category} basePath="/courses" /></div>
+        <div className="mt-12" aria-live="polite">
+          <Suspense key={`${category ?? ""}-${q ?? ""}`} fallback={<CourseGridSkeleton />}>
+            <CourseGrid category={category} search={q} />
+          </Suspense>
         </div>
       </Container>
     </main>

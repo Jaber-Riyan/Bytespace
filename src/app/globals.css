@@ -54,3 +54,6 @@
 html { scroll-behavior: smooth; }
 body { background: var(--background); color: var(--foreground); font-family: "Satoshi", Arial, sans-serif; }
 button, a, input { transition-duration: 160ms; }
+
+.course-category-rail { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.course-category-rail::-webkit-scrollbar { display: none; }
