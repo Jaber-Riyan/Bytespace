@@ -176,3 +176,40 @@ body:has(dialog[data-cart-drawer][open]) {
 .site-header-actions > :is(a, button):hover {
   color: var(--header-action-hover);
 }
+
+.hero-stat-float {
+  --hero-float-distance: -5px;
+  animation: hero-stat-float 3.5s ease-in-out infinite;
+}
+
+.hero-stat-float-progress {
+  animation-duration: 3.5s;
+  animation-delay: -2s;
+}
+
+.hero-stat-float-students {
+  animation-duration: 5s;
+  animation-delay: -3s;
+}
+
+@keyframes hero-stat-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--hero-float-distance));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-stat-float {
+    --hero-float-distance: -10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stat-float {
+    animation: none;
+  }
+}
