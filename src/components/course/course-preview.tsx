@@ -1,26 +1,30 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import type { CourseLesson } from "@/types";
 
 export function CoursePreview({
   poster,
   title,
   video,
+  autoPlay = false,
 }: {
   poster: string;
   title: string;
   video?: CourseLesson["video"];
+  autoPlay?: boolean;
 }) {
-  const [playing, setPlaying] = useState(false);
   return (
-    <div className="relative aspect-[3/2] overflow-hidden rounded-[24px] bg-shuttle-soft">
-      {playing && video ? (
+    <div className="relative aspect-video overflow-hidden rounded-[24px] bg-[#0b0c10] shadow-[0_24px_60px_rgba(0,0,0,0.2)]">
+      {video ? (
         <iframe
           className="absolute inset-0 h-full w-full"
-          src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1`}
+          src={`https://www.youtube-nocookie.com/embed/${video.videoId}?${new URLSearchParams({
+            autoplay: autoPlay ? "1" : "0",
+            rel: "0",
+            modestbranding: "1",
+          })}`}
           title={title}
-          allow="autoplay; encrypted-media; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         />
       ) : (
@@ -31,17 +35,18 @@ export function CoursePreview({
             fill
             priority
             sizes="(min-width: 1024px) 720px, 100vw"
-            className="object-cover"
+            className="object-cover opacity-60"
           />
-          {video && (
-            <button
-              onClick={() => setPlaying(true)}
-              aria-label="Play course preview"
-              className="absolute left-1/2 top-1/2 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl bg-black/30 text-4xl text-white backdrop-blur-sm transition-colors hover:bg-black/50"
-            >
-              <span aria-hidden="true">▶</span>
-            </button>
-          )}
+          <div className="absolute inset-0 grid place-items-center p-6 text-center text-white">
+            <div>
+              <span className="mx-auto grid size-14 place-items-center rounded-full border border-white/20 bg-black/30 backdrop-blur-sm">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none">
+                  <path d="M8 6.5 17 12l-9 5.5v-11Z" fill="currentColor" />
+                </svg>
+              </span>
+              <p className="mt-4 text-sm font-bold">Video coming soon</p>
+            </div>
+          </div>
         </>
       )}
     </div>

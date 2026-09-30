@@ -2,7 +2,13 @@ import Link from "next/link";
 import { LessonProgress } from "./lesson-progress";
 import type { Course } from "@/types";
 
-export function CourseLessonsContent({ course }: { course: Course }) {
+export function CourseLessonsContent({
+  course,
+  activeLessonId,
+}: {
+  course: Course;
+  activeLessonId?: string;
+}) {
   return (
     <div>
       <h2 className="text-xl font-bold">Explore the Modules</h2>
@@ -40,10 +46,20 @@ export function CourseLessonsContent({ course }: { course: Course }) {
                   return lesson ? (
                     <Link
                       key={id}
-                      href={`/courses/${course.id}/lessons?lesson=${id}`}
-                      className="text-sm text-persian-blue hover:underline"
+                      href={`/courses/${course.id}/lessons?lesson=${id}#lesson-player`}
+                      aria-current={activeLessonId === id ? "page" : undefined}
+                      className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition ${
+                        activeLessonId === id
+                          ? "bg-persian-blue text-white shadow-[0_6px_16px_rgba(0,59,226,0.2)]"
+                          : "bg-persian-blue/5 text-persian-blue hover:bg-electric-lime hover:text-shuttle-ink"
+                      }`}
                     >
-                      {lesson.video ? "Watch" : "View"}: {lesson.title}
+                      <span
+                        aria-hidden="true"
+                        className={`size-2 rounded-full ${activeLessonId === id ? "animate-pulse bg-electric-lime" : "bg-persian-blue"}`}
+                      />
+                      {activeLessonId === id ? "Playing" : lesson.video ? "Watch" : "View"}:{" "}
+                      {lesson.title}
                     </Link>
                   ) : null;
                 })}
