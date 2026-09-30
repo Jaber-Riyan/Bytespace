@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feat/bytespace-website",
+    "main"
+  ],
+  "parent": {
+    "feat/bytespace-website": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "feat/bytespace-website"
+  ]
+}
