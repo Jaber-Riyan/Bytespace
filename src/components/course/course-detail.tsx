@@ -68,24 +68,31 @@ export function CourseDetail({
           <CourseShare title={course.details.headline} />
         </div>
         <div className="mt-[60px] grid items-start gap-8 lg:grid-cols-[minmax(0,720px)_minmax(0,412px)] lg:gap-x-[64px]">
-          <div className="min-w-0">
+          <div id="lesson-player" className="min-w-0 scroll-mt-28">
             <CoursePreview
               key={previewLesson?.id || course.id}
               poster={course.details.previewImage}
               title={lesson?.title || course.title}
               video={previewLesson?.video}
+              autoPlay={Boolean(lesson)}
             />
             {lesson && (
-              <div className="mt-3 rounded-xl bg-white p-4 text-sm">
-                <p className="font-medium">{lesson.title}</p>
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 text-sm shadow-[0_8px_30px_rgba(20,24,40,0.08)]">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-persian-blue">
+                    Now playing · Lesson{" "}
+                    {course.lessons.findIndex((item) => item.id === lesson.id) + 1}
+                  </p>
+                  <p className="mt-1 font-bold">{lesson.title}</p>
+                </div>
                 {lesson.video ? (
                   <a
-                    className="mt-1 inline-block text-persian-blue hover:underline"
+                    className="rounded-full bg-shuttle-soft px-4 py-2 font-medium text-persian-blue hover:bg-electric-lime"
                     href={lesson.video.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Watch on YouTube ↗
+                    Open in YouTube ↗
                   </a>
                 ) : (
                   <p className="mt-1 text-shuttle-muted">This lesson video is not available yet.</p>
@@ -111,14 +118,16 @@ export function CourseDetail({
                   href={`${item.href}#course-content`}
                   scroll={false}
                   aria-current={active === item.id ? "page" : undefined}
-                  className={`rounded-full px-5 py-3 text-sm ${active === item.id ? "bg-electric-lime" : "bg-shuttle-soft hover:bg-electric-lime"}`}
+                  className={`rounded-full px-5 py-3 text-sm ${active === item.id ? "bg-electric-lime" : "bg-shuttle-soft hover:bg-electric-lime/30"}`}
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
             {active === "about" && <CourseAboutContent course={course} />}
-            {active === "lessons" && <CourseLessonsContent course={course} />}
+            {active === "lessons" && (
+              <CourseLessonsContent course={course} activeLessonId={lessonId} />
+            )}
             {active === "reviews" && (
               <CourseReviewsContent
                 title={course.details.headline}
