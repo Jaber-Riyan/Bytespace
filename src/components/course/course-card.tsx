@@ -57,8 +57,8 @@ export function CourseCard({
         <p className="mt-1 text-[12px] leading-[18px] text-shuttle-muted">
           By <span className="text-persian-blue">{course.creator}</span>
         </p>
-        <div className="mt-auto flex items-center justify-between gap-2 pt-3">
-          <span className="rounded-full bg-shuttle-soft px-3 py-1 text-[11px] text-shuttle-muted">
+        <div className="mt-auto flex items-center gap-2 pt-3">
+          <span className="rounded-full bg-shuttle-soft px-3 py-1 text-[14px] text-shuttle-muted">
             {course.level}
           </span>
           <div className="flex items-center pl-2" aria-label={`${course.learnerCount} learners`}>
@@ -69,10 +69,10 @@ export function CourseCard({
                 alt=""
                 width={28}
                 height={28}
-                className="-ml-2 size-7 rounded-full border-2 border-white object-cover"
+                className="-ml-2 size-9 rounded-full border-2 border-white object-cover"
               />
             ))}
-            <span className="-ml-1 flex size-7 items-center justify-center rounded-full border-2 border-white bg-persian-blue text-[9px] text-white">
+            <span className="-ml-1 flex size-9 items-center justify-center rounded-full border-2 border-white bg-electric-lime text-[13px] text-black">
               {course.learnerCount - 4}+
             </span>
           </div>

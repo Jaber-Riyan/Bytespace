@@ -78,7 +78,7 @@ function LearningPathCard({ path }: { path: (typeof learningPaths)[number] }) {
       href={`/courses?category=${encodeURIComponent(path.category)}`}
       className="group flex h-[167px] w-full max-w-[167px] flex-col items-center justify-center gap-3 rounded-[24px] border border-[#ced0d3] bg-white text-center transition-[border-color,box-shadow,transform] hover:-translate-y-1 hover:border-persian-blue hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue"
     >
-      <span className="grid size-[60px] place-items-center rounded-[18px] bg-shuttle-soft text-persian-blue group-hover:bg-electric-lime">
+      <span className="grid size-[60px] place-items-center rounded-[18px] bg-electric-lime text-black font-bold group-hover:bg-electric-lime/50">
         <LearningPathIcon icon={path.icon} />
       </span>
       <span className="px-2 text-[18px] font-medium leading-[24px] text-shuttle-ink">

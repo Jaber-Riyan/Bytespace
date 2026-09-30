@@ -40,7 +40,7 @@ export function StudentProofCard({
             className={`relative size-8 rounded-full lg:size-[43px] ${index === 0 ? "" : "-ml-3 lg:-ml-4"}`}
           />
         ))}
-        <span className="relative -ml-3 grid size-8 place-items-center lg:-ml-4 lg:size-[43px] bg-[url('/images/hero/imgEllipse8.svg')] bg-contain font-bold text-[12px]">
+        <span className="relative -ml-3 grid size-8 place-items-center lg:-ml-4 lg:size-[43px] bg-[url('/images/hero/imgEllipse8.svg')] bg-no-repeat bg-contain font-bold text-[12px]">
           2K+
         </span>
       </div>
