@@ -106,7 +106,7 @@ export function CourseDetail({
           <section
             id="course-content"
             aria-label="Course information"
-            className="min-w-0 scroll-mt-28 rounded-2xl bg-white pt-6 lg:col-start-1 lg:row-start-2 lg:mt-[74px] lg:pt-0"
+            className="min-w-0 scroll-mt-28 rounded-2xl bg-white pt-6 lg:col-start-1 lg:row-start-2 lg:mt-[150px] lg:pt-0"
           >
             <nav
               aria-label="Course information tabs"
