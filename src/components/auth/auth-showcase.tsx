@@ -61,11 +61,13 @@ export function AuthShowcase({ mode }: { mode: "register" | "signIn" }) {
             image="/images/hero/imgImage1.png"
             mask="/images/hero/imgRectangle.png"
             color="white"
-            className="left-[386px] top-[663px] z-20 size-[120px]"
+            className="left-[386px] top-[663px] z-40 size-[120px]"
           />
           <StudentProofCard
             tone="lime"
-            className="pointer-events-none absolute left-[228px] top-[740px] z-40"
+            starColor="blue"
+            className="pointer-events-none absolute left-[228px] top-[740px] z-20"
+            numberColor="bg-black/90 text-white"
           />
         </div>
       )}

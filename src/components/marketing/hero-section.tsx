@@ -12,7 +12,7 @@ export function HeroSection() {
       className="relative -mt-[120px] min-h-[990px] overflow-hidden bg-persian-blue text-white lg:h-[1024px]"
       aria-labelledby="hero-title"
     >
-      <div className="relative mx-auto min-h-[990px] max-w-[1440px] lg:h-full lg:min-h-0">
+      <div className="relative mx-auto flex min-h-[990px] max-w-[1440px] flex-col pt-[164px] lg:block lg:h-full lg:min-h-0 lg:pt-0">
         <Image
           src={asset("imgGroup4.svg")}
           alt=""
@@ -69,7 +69,7 @@ export function HeroSection() {
           />
         </div>
 
-        <div className="relative z-20 mx-auto mt-[164px] flex w-[calc(100%-40px)] max-w-[1200px] flex-col items-center text-center lg:absolute lg:left-1/2 lg:top-[169px] lg:mt-0 lg:-translate-x-1/2">
+        <div className="relative z-20 mx-auto flex w-[calc(100%-40px)] max-w-[1200px] flex-col items-center text-center lg:absolute lg:left-1/2 lg:top-[169px] lg:mt-0 lg:-translate-x-1/2">
           <h1
             id="hero-title"
             className="max-w-[935px] font-heading text-[clamp(42px,5vw,72px)] font-semibold leading-[1.2] tracking-[-0.01em]"
@@ -83,17 +83,17 @@ export function HeroSection() {
           <CourseSearch className="mt-[60px]" />
         </div>
 
-        <div className="relative z-10 mx-auto mt-8 h-[430px] w-full max-w-[500px] lg:contents">
+        <div className="relative z-10 mx-auto mt-8 min-h-[430px] w-full max-w-[500px] flex-1 lg:contents">
           <Image
             src={asset("learner.png")}
             alt="Smiling student learning with a laptop"
             width={578}
             height={541}
             priority
-            className="pointer-events-none absolute left-1/2 top-[52px] z-10 h-auto w-[min(95vw,390px)] -translate-x-1/2 drop-shadow-2xl lg:top-[512px] lg:w-[578px]"
+            className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto w-[min(95vw,390px)] -translate-x-1/2 drop-shadow-2xl lg:bottom-auto lg:top-[512px] lg:w-[578px]"
           />
 
-          <div className="absolute left-3 top-[48px] z-20 w-[174px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-sm backdrop-blur-[10px] lg:left-[calc(50%-316px)] lg:top-[639px] lg:w-auto lg:p-4">
+          <div className="hero-stat-float absolute left-3 top-[48px] z-20 w-[174px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-sm backdrop-blur-[10px] lg:left-[calc(50%-316px)] lg:top-[639px] lg:w-auto lg:p-4">
             <p className="text-[14px] font-medium leading-[18px] lg:text-[16px] lg:leading-[19px]">
               UI/UX Design
             </p>
@@ -102,7 +102,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          <div className="absolute right-3 top-[108px] z-20 w-[152px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-sm backdrop-blur-[10px] lg:left-[calc(50%+122px)] lg:right-auto lg:top-[651px] lg:w-[232px] lg:p-4">
+          <div className="hero-stat-float hero-stat-float-progress absolute right-3 top-[108px] z-20 w-[152px] rounded-[16px] bg-white p-3 text-shuttle-ink shadow-sm backdrop-blur-[10px] lg:left-[calc(50%+122px)] lg:right-auto lg:top-[651px] lg:w-[232px] lg:p-4">
             <p className="text-[11px] font-medium leading-[15px] lg:text-[14px] lg:leading-[17px]">
               Learning Progress
             </p>
@@ -112,7 +112,7 @@ export function HeroSection() {
             <ProgressBar value={55} className="mt-2" />
           </div>
 
-          <StudentProofCard className="absolute bottom-3 left-3 z-20 lg:bottom-auto lg:left-[calc(50%-392px)] lg:top-[837px]" />
+          <StudentProofCard className="hero-stat-float hero-stat-float-students absolute bottom-3 left-3 z-20 lg:bottom-auto lg:left-[calc(50%-392px)] lg:top-[837px]" />
         </div>
       </div>
     </section>

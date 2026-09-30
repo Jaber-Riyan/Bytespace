@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FormField } from "@/components/ui/form-field";
 
 type AuthMode = "register" | "signIn";
@@ -42,17 +43,9 @@ function SocialAuthButton({
       className="flex size-[70px] items-center justify-center rounded-[16px] border border-[#e1e1e1] bg-white text-black transition-colors hover:border-persian-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue"
     >
       {provider === "Facebook" ? (
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-          <circle cx="19" cy="19" r="17" fill="black" />
-          <path
-            d="M21.6 31V20.7h3.5l.5-4h-4v-2.5c0-1.2.4-2 2-2h2.2V8.7a27 27 0 0 0-3.2-.2c-3.3 0-5.5 2-5.5 5.7v2.5h-3.4v4h3.4V31h4.5Z"
-            fill="white"
-          />
-        </svg>
+        <Image src="/images/auth/facebook-logo.png" alt="" width={38} height={38} />
       ) : (
-        <span aria-hidden="true" className="font-sans text-[39px] font-bold leading-none">
-          G
-        </span>
+        <Image src="/images/auth/google-logo.png" alt="" width={38} height={38} />
       )}
     </button>
   );

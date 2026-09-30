@@ -13,9 +13,13 @@ const students = [
 export function StudentProofCard({
   className = "",
   tone = "white",
+  numberColor,
+  starColor = "lime",
 }: {
   className?: string;
   tone?: "white" | "lime";
+  numberColor?: string;
+  starColor?: "blue" | "lime";
 }) {
   return (
     <div
@@ -27,7 +31,14 @@ export function StudentProofCard({
       <div className="flex items-center text-[11px] leading-[17px] lg:text-[12px] lg:leading-[19px]">
         <span>4.5</span>
         <span className="ml-1 text-shuttle-muted">(240)</span>
-        <Image src="/images/hero/imgStar.svg" alt="" width={16} height={16} className="ml-1" />
+        <span
+          aria-hidden="true"
+          className={`ml-1 inline-block size-4 shrink-0 ${starColor === "blue" ? "bg-persian-blue" : "bg-electric-lime"}`}
+          style={{
+            mask: 'url("/images/hero/imgStar.svg") center / contain no-repeat',
+            WebkitMask: 'url("/images/hero/imgStar.svg") center / contain no-repeat',
+          }}
+        />
       </div>
       <div className="mt-2 flex items-center">
         {students.map((student, index) => (
@@ -40,7 +51,9 @@ export function StudentProofCard({
             className={`relative size-8 rounded-full lg:size-[43px] ${index === 0 ? "" : "-ml-3 lg:-ml-4"}`}
           />
         ))}
-        <span className="relative -ml-3 grid size-8 place-items-center lg:-ml-4 lg:size-[43px] bg-[url('/images/hero/imgEllipse8.svg')] bg-contain font-bold text-[12px]">
+        <span
+          className={`relative -ml-3 grid place-items-center lg:-ml-6 lg:size-10.75 ${numberColor ? `${numberColor}` : "bg-electric-lime"} rounded-full font-bold text-[12px]`}
+        >
           2K+
         </span>
       </div>
